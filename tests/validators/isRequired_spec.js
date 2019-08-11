@@ -4,14 +4,14 @@ describe('isRequired', () => {
 
   it('should return null', () => {
 
-    expect(validate('value')).toEqual(null);
-    expect(validate('')).toEqual(null);
-    expect(validate(' ')).toEqual(null);
-    expect(validate(true)).toEqual(null);
-    expect(validate(1)).toEqual(null);
-    expect(validate(() => 1)).toEqual(null);
-    expect(validate({})).toEqual(null);
-    expect(validate([])).toEqual(null);
+    expect(validate('value')).toBeNull();
+    expect(validate('')).toBeNull();
+    expect(validate(' ')).toBeNull();
+    expect(validate(true)).toBeNull();
+    expect(validate(1)).toBeNull();
+    expect(validate(() => 1)).toBeNull();
+    expect(validate({})).toBeNull();
+    expect(validate([])).toBeNull();
   });
 
   it('should return error', () => {

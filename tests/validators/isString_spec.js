@@ -4,11 +4,11 @@ describe('isString', () => {
 
   it('should return null', () => {
 
-    expect(validate(null)).toEqual(null);
-    expect(validate(void 0)).toEqual(null);
-    expect(validate('value')).toEqual(null);
-    expect(validate('')).toEqual(null);
-    expect(validate(' ')).toEqual(null);
+    expect(validate(null)).toBeNull();
+    expect(validate(void 0)).toBeNull();
+    expect(validate('value')).toBeNull();
+    expect(validate('')).toBeNull();
+    expect(validate(' ')).toBeNull();
   });
 
   it('should return error name', () => {
