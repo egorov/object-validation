@@ -1,0 +1,30 @@
+{
+  "name": "object-validation",
+  "version": "0.0.1",
+  "description": "Object content validation tools.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint src tests ./index.js",
+    "pretest": "npm run lint",
+    "test": "node node_modules/jasmine/bin/jasmine --config=jasmine.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egorov/object-validation.git"
+  },
+  "keywords": [
+    "object",
+    "properties",
+    "validation"
+  ],
+  "author": "Sergey Egorov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/egorov/object-validation/issues"
+  },
+  "homepage": "https://github.com/egorov/object-validation#readme",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "jasmine": "^3.4.0"
+  }
+}
