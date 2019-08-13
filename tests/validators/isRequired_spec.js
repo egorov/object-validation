@@ -16,9 +16,11 @@ describe('isRequired', () => {
 
   it('should return error', () => {
 
-    const error = 'value is required';
+    const result = {
+      error: 'isRequired'
+    };
 
-    expect(validate(null)).toEqual(error);
-    expect(validate(void 0)).toEqual(error);
+    expect(validate(null)).toEqual(result);
+    expect(validate(void 0)).toEqual(result);
   });
 });

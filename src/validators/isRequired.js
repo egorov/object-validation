@@ -1,12 +1,14 @@
 function isRequired(value) {
 
-  const error = 'value is required';
+  const result = {
+    error: 'isRequired'
+  };
 
   if(typeof value === 'undefined')
-    return error;
+    return result;
   
   if(value === null)
-    return error;
+    return result;
   
   return null;
 }

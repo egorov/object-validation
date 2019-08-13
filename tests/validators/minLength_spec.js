@@ -19,10 +19,10 @@ describe('minLength', () => {
 
   it('should return an error', () => {
 
-    const error = 'value length is too short';
+    const name = 'minLength';
 
-    expect(validate('echo', 5)).toEqual(error);
-    expect(validate(array, 4)).toEqual(error);
+    expect(validate('echo', 5)).toEqual({error: name, constraints: [5]});
+    expect(validate(array, 4)).toEqual({error: name, constraints: [4]});
   });
 
   it('should throw an error', () => {

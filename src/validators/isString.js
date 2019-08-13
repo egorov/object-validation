@@ -7,7 +7,9 @@ function isString(value) {
     return null;
 
   if(typeof value !== 'string')
-    return 'string is required';
+    return {
+      error: 'isString'
+    };
     
   return null;
 }

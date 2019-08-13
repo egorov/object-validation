@@ -11,13 +11,15 @@ describe('isString', () => {
     expect(validate(' ')).toBeNull();
   });
 
-  it('should return error name', () => {
+  it('should return error', () => {
 
-    const message = 'string is required';
+    const result = {
+      error: 'isString'
+    };
     
-    expect(validate({})).toEqual(message);
-    expect(validate(true)).toEqual(message);
-    expect(validate([])).toEqual(message);
-    expect(validate(() => 1)).toEqual(message);
+    expect(validate({})).toEqual(result);
+    expect(validate(true)).toEqual(result);
+    expect(validate([])).toEqual(result);
+    expect(validate(() => 1)).toEqual(result);
   });
 });

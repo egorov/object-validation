@@ -11,7 +11,10 @@ function minLength(value, length) {
     return null;
   
   if(value.length < length)
-    return 'value length is too short';
+    return {
+      error: 'minLength',
+      constraints: [length]
+    };
 
   return null;
 }
