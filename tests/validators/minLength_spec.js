@@ -57,7 +57,7 @@ describe('minLength', () => {
 
   it('should throw constraint length error', () => {
 
-    const error = new Error('constraints should contain length value');
+    const error = new Error('constraints should contain values');
 
     expect(() => validate('echo', [])).toThrow(error);
   });
