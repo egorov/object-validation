@@ -1,8 +1,8 @@
 /* eslint prefer-reflect: "off" */
 
-function minLength(value, length) {
+function minLength(value, constraints) {
 
-  validateInteger(length);
+  validateConstraints(constraints);
 
   if(!{}.hasOwnProperty.call(value, 'length'))
     return null;
@@ -10,13 +10,24 @@ function minLength(value, length) {
   if(typeof value === 'function')
     return null;
   
-  if(value.length < length)
+  if(value.length < constraints[0])
     return {
       error: 'minLength',
-      constraints: [length]
+      constraints
     };
 
   return null;
+}
+
+function validateConstraints(values) {
+
+  if(!Array.isArray(values))
+    throw new TypeError('constraints value should be an array');
+  
+  if(values.length === 0)
+    throw new Error('constraints should contain length value');
+
+  validateInteger(values[0]);
 }
 
 function validateInteger(value) {
@@ -29,4 +40,5 @@ function validateInteger(value) {
   if(value <= 0)
     throw new TypeError(msg);
 }
+
 module.exports = minLength;
