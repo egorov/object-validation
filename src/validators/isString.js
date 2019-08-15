@@ -8,7 +8,7 @@ function isString(value) {
 
   if(typeof value !== 'string')
     return {
-      error: 'isString'
+      type: 'isString'
     };
     
   return null;

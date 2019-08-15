@@ -17,7 +17,7 @@ describe('isRequired', () => {
   it('should return error', () => {
 
     const result = {
-      error: 'isRequired'
+      type: 'isRequired'
     };
 
     expect(validate(null)).toEqual(result);

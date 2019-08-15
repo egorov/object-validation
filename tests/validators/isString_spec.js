@@ -14,7 +14,7 @@ describe('isString', () => {
   it('should return error', () => {
 
     const result = {
-      error: 'isString'
+      type: 'isString'
     };
     
     expect(validate({})).toEqual(result);

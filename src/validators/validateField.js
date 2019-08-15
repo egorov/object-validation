@@ -15,10 +15,7 @@ function validateField(context) {
   if(errors.length === 0)
     return null;
 
-  const result = {};
-
-  result[context.fieldName] = errors;
-  return result;
+  return errors;
 }
 
 module.exports = validateField;

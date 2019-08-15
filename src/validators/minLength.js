@@ -4,6 +4,9 @@ const validateInteger = require('./validateInteger');
 
 function minLength(value, constraints) {
 
+  if(typeof value === 'undefined')
+    return null;
+
   validateConstraints(constraints);
   validateInteger(constraints[0], 'length');
 
@@ -15,8 +18,8 @@ function minLength(value, constraints) {
   
   if(value.length < constraints[0])
     return {
-      error: 'minLength',
-      constraints
+      type: 'minLength',
+      constraints: constraints.slice()
     };
 
   return null;

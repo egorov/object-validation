@@ -15,14 +15,15 @@ describe('minLength', () => {
     expect(validate(true, [2])).toBeNull();
     expect(validate(() => 2, [1])).toBeNull();
     expect(validate(35, [1])).toBeNull();
+    expect(validate(void 0, [1])).toBeNull();
   });
 
   it('should return an error', () => {
 
-    const name = 'minLength';
+    const type = 'minLength';
 
-    expect(validate('echo', [5])).toEqual({error: name, constraints: [5]});
-    expect(validate(array, [4])).toEqual({error: name, constraints: [4]});
+    expect(validate('echo', [5])).toEqual({type, constraints: [5]});
+    expect(validate(array, [4])).toEqual({type, constraints: [4]});
   });
 
   it('should throw length value type error', () => {
