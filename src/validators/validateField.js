@@ -1,19 +1,21 @@
 function validateField(context) {
   
-  const errors = [];
+  let errors = null;
 
-  for(let index = 0; index < context.rules.length; index += 1) {
+  for(let idx = 0; idx < context.rules.length; idx += 1) {
     
-    const rule = context.rules[index];
+    const rule = context.rules[idx];
     const validate = context.validators[rule.type];
     const result = validate(context.value, rule.constraints);
     
-    if(result !== null)
-      errors.push(result);
-  }
+    if(result === null)
+      continue;
 
-  if(errors.length === 0)
-    return null;
+    if(errors === null)
+      errors = [];
+      
+    errors.push(result);
+  }
 
   return errors;
 }
