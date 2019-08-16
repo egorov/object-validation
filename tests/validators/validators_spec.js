@@ -22,4 +22,11 @@ describe('validators', () => {
 
     expect(validators.minLength).toBe(minLength);
   });
+
+  it('should supply maxLength', () => {
+
+    const maxLength = require('../../src/validators/maxLength');
+
+    expect(validators.maxLength).toBe(maxLength);
+  });
 });

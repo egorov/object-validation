@@ -1,18 +1,18 @@
-describe('minLength', () => {
+describe('maxLength', () => {
 
-  const validate = require('../../src/validators/minLength');
+  const validate = require('../../src/validators/maxLength');
   const array = [
     1, 
     2, 
     3
-  ];
+  ];  
 
   it('should return null', () => {
 
-    expect(validate('echo', [3])).toBeNull();
-    expect(validate('echo', [2])).toBeNull();
-    expect(validate(array, [2])).toBeNull();
+    expect(validate('jack', [4])).toBeNull();
+    expect(validate('jack', [5])).toBeNull();
     expect(validate(array, [3])).toBeNull();
+    expect(validate(array, [4])).toBeNull();
     expect(validate({}, [1])).toBeNull();
     expect(validate(true, [2])).toBeNull();
     expect(validate(() => 2, [1])).toBeNull();
@@ -22,10 +22,12 @@ describe('minLength', () => {
 
   it('should return an error', () => {
 
-    const type = 'minLength';
+    const type = 'maxLength';
 
-    expect(validate('echo', [5])).toEqual({type, constraints: [5]});
-    expect(validate(array, [4])).toEqual({type, constraints: [4]});
+    expect(validate('echo', [3])).toEqual({type, constraints: [3]});
+    expect(validate('echo', [2])).toEqual({type, constraints: [2]});
+    expect(validate(array, [2])).toEqual({type, constraints: [2]});
+    expect(validate(array, [1])).toEqual({type, constraints: [1]});
   });
 
   it('should throw length value type error', () => {

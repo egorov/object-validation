@@ -1,16 +1,19 @@
 describe('validateObject', () => {
 
   const validateObject = require('../../src/validators/validateObject');
+  const validators = require('../../src/validators/validators');
   const rules = {
     firstName: [
       { type: 'isString' },
       { type: 'isRequired' },
-      { type: 'minLength', constraints: [3] }
+      { type: 'minLength', constraints: [3] },
+      { type: 'maxLength', constraints: [20] }
     ],
     lastName: [
       { type: 'isString' },
       { type: 'isRequired' },
-      { type: 'minLength', constraints: [3] }
+      { type: 'minLength', constraints: [3] },
+      { type: 'maxLength', constraints: [20] }
     ]
   };
 
@@ -22,7 +25,8 @@ describe('validateObject', () => {
     };
     const context = {
       value,
-      rules
+      rules,
+      validators
     };
     
     expect(validateObject(context)).toBeNull();
@@ -36,7 +40,8 @@ describe('validateObject', () => {
     };
     const context = {
       value,
-      rules
+      rules,
+      validators
     };
     const result = validateObject(context);
 

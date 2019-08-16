@@ -1,5 +1,4 @@
 /* eslint prefer-reflect: "off" */
-const validators = require('./validators');
 const validateField = require('./validateField');
 
 function validateObject(context) {
@@ -16,7 +15,7 @@ function validateObject(context) {
     const ctx = {
       value: context.value[property],
       rules: context.rules[property],
-      validators
+      validators: context.validators
     };
     const vr = validateField(ctx);
 
