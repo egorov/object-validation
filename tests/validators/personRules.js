@@ -18,6 +18,7 @@ module.exports = {
         'Male',
         'Female'
       ]
-    }
+    },
+    { type: 'isRequired' }
   ]
 };

@@ -26,10 +26,11 @@ describe('personRules', () => {
 
   it('should supply gender rules', () => {
 
-    expect(rules.gender.length).toEqual(1);
+    expect(rules.gender.length).toEqual(2);
     expect(rules.gender[0].type).toEqual('inRange');
     expect(rules.gender[0].constraints.length).toEqual(2);
     expect(rules.gender[0].constraints[0]).toEqual('Male');
     expect(rules.gender[0].constraints[1]).toEqual('Female');
+    expect(rules.gender[1].type).toEqual('isRequired');
   });
 });

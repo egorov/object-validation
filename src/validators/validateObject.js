@@ -5,17 +5,19 @@ function validateObject(context) {
 
   validateContext(context);
 
+  const value = Object.assign({}, context.value);
+
   let result = null;
 
   for(const property in context.rules) {
     if (!{}.hasOwnProperty.call(context.rules, property))
       continue;
 
-    if(!{}.hasOwnProperty.call(context.value, property))
-      continue;
+    if(!{}.hasOwnProperty.call(value, property))
+      value[property] = void 0;
 
     const ctx = {
-      value: context.value[property],
+      value: value[property],
       rules: context.rules[property],
       validators: context.validators
     };
