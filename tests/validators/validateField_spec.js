@@ -46,9 +46,10 @@ describe('validateField', () => {
     };  
     const result = validateField(context);
 
-    expect(result.length).toBe(2);
+    expect(result.length).toBe(3);
     expect(result[0]).toEqual(rules[0]);
     expect(result[1]).toEqual(rules[2]);
+    expect(result[2]).toEqual(rules[3]);
   });
 
   it('result should contain isRequired', () => {
@@ -61,10 +62,11 @@ describe('validateField', () => {
     };  
     const result = validateField(context);
 
-    expect(result.length).toBe(3);
+    expect(result.length).toBe(4);
     expect(result[0]).toEqual(rules[0]);
     expect(result[1]).toEqual(rules[1]);
     expect(result[2]).toEqual(rules[2]);
+    expect(result[3]).toEqual(rules[3]);
   });
 
   it('result should contain isString and minLength', () => {

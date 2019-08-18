@@ -39,15 +39,17 @@ describe('validateObject', () => {
     context.value = {};
     const result = validateObject(context);
     
-    expect(result.firstName.length).toEqual(3);
+    expect(result.firstName.length).toEqual(4);
     expect(result.firstName[0]).toEqual(rules.firstName[0]);
     expect(result.firstName[1]).toEqual(rules.firstName[1]);
     expect(result.firstName[2]).toEqual(rules.firstName[2]);
+    expect(result.firstName[3]).toEqual(rules.firstName[3]);
 
-    expect(result.lastName.length).toEqual(3);
+    expect(result.lastName.length).toEqual(4);
     expect(result.lastName[0]).toEqual(rules.lastName[0]);
     expect(result.lastName[1]).toEqual(rules.lastName[1]);
     expect(result.lastName[2]).toEqual(rules.lastName[2]);
+    expect(result.lastName[3]).toEqual(rules.lastName[3]);
 
     expect(result.gender.length).toEqual(2);
     expect(result.gender[0]).toEqual(rules.gender[0]);

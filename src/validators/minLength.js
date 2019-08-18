@@ -12,7 +12,7 @@ function minLength(value, constraints) {
     constraints: constraints.slice()
   };
 
-  if(typeof value === 'undefined')
+  if(typeof value === 'undefined' || typeof value === 'function')
     return result;
 
   if(value === null)
