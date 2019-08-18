@@ -36,4 +36,11 @@ describe('validators', () => {
 
     expect(validators.inRange).toBe(inRange);
   });
+
+  it('should supply isInteger', () => {
+
+    const isInteger = require('../../src/validators/isInteger');
+
+    expect(validators.isInteger).toBe(isInteger);
+  });
 });
