@@ -43,4 +43,11 @@ describe('validators', () => {
 
     expect(validators.isInteger).toBe(isInteger);
   });
+
+  it('should supply isFloat', () => {
+
+    const isFloat = require('../../src/validators/isFloat');
+
+    expect(validators.isFloat).toBe(isFloat);
+  });
 });
