@@ -29,4 +29,11 @@ describe('validators', () => {
 
     expect(validators.maxLength).toBe(maxLength);
   });
+
+  it('should supply inRange', () => {
+
+    const inRange = require('../../src/validators/inRange');
+
+    expect(validators.inRange).toBe(inRange);
+  });
 });

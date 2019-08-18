@@ -10,5 +10,14 @@ module.exports = {
     { type: 'isRequired' },
     { type: 'minLength', constraints: [2] },
     { type: 'maxLength', constraints: [50] }
+  ],
+  gender: [
+    { 
+      type: 'inRange', 
+      constraints: [
+        'Male',
+        'Female'
+      ]
+    }
   ]
 };

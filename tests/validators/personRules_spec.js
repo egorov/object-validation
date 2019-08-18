@@ -23,4 +23,13 @@ describe('personRules', () => {
     expect(rules.lastName[3].type).toEqual('maxLength');
     expect(rules.lastName[3].constraints).toEqual([50]);
   });
+
+  it('should supply gender rules', () => {
+
+    expect(rules.gender.length).toEqual(1);
+    expect(rules.gender[0].type).toEqual('inRange');
+    expect(rules.gender[0].constraints.length).toEqual(2);
+    expect(rules.gender[0].constraints[0]).toEqual('Male');
+    expect(rules.gender[0].constraints[1]).toEqual('Female');
+  });
 });
