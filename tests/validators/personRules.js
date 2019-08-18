@@ -3,13 +3,13 @@ module.exports = {
     { type: 'isString' },
     { type: 'isRequired' },
     { type: 'minLength', constraints: [2] },
-    { type: 'maxLength', constraints: [50] }
+    { type: 'maxLength', constraints: [100] }
   ],
   lastName: [
     { type: 'isString' },
     { type: 'isRequired' },
     { type: 'minLength', constraints: [2] },
-    { type: 'maxLength', constraints: [50] }
+    { type: 'maxLength', constraints: [100] }
   ],
   gender: [
     { 

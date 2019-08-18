@@ -55,4 +55,22 @@ describe('validateObject', () => {
     expect(result.gender[0]).toEqual(rules.gender[0]);
     expect(result.gender[1]).toEqual(rules.gender[1]);
   });
+
+  it('should check validation results', () => {
+
+    const resultSet = require('./personResultSet');
+    const ruleSet = require('./ruleSet');
+
+    for(const dto of resultSet) {
+
+      const ctx = {
+        value: dto.payload,
+        rules: ruleSet[dto.type],
+        validators
+      };
+      const result = validateObject(ctx);
+      
+      expect(result).toEqual(dto.expectedValidationResult);
+    }
+  });
 });

@@ -10,7 +10,7 @@ describe('personRules', () => {
     expect(rules.firstName[2].type).toEqual('minLength');
     expect(rules.firstName[2].constraints).toEqual([2]);
     expect(rules.firstName[3].type).toEqual('maxLength');
-    expect(rules.firstName[3].constraints).toEqual([50]);
+    expect(rules.firstName[3].constraints).toEqual([100]);
   });
 
   it('should supply lastName rules', () => {
@@ -21,7 +21,7 @@ describe('personRules', () => {
     expect(rules.lastName[2].type).toEqual('minLength');
     expect(rules.lastName[2].constraints).toEqual([2]);
     expect(rules.lastName[3].type).toEqual('maxLength');
-    expect(rules.lastName[3].constraints).toEqual([50]);
+    expect(rules.lastName[3].constraints).toEqual([100]);
   });
 
   it('should supply gender rules', () => {
