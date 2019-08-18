@@ -4,8 +4,6 @@ describe('isString', () => {
 
   it('should return null', () => {
 
-    expect(validate(null)).toBeNull();
-    expect(validate(void 0)).toBeNull();
     expect(validate('value')).toBeNull();
     expect(validate('')).toBeNull();
     expect(validate(' ')).toBeNull();
@@ -21,5 +19,8 @@ describe('isString', () => {
     expect(validate(true)).toEqual(result);
     expect(validate([])).toEqual(result);
     expect(validate(() => 1)).toEqual(result);
+    expect(validate(null)).toEqual(result);
+    expect(validate(void 0)).toEqual(result);
+    expect(validate(1)).toEqual(result);
   });
 });

@@ -1,15 +1,17 @@
 function isString(value) {
 
+  const result = {
+    type: 'isString'
+  };
+
   if(typeof value === 'undefined')
-    return null;
+    return result;
 
   if(value === null)
-    return null;
+    return result;
 
   if(typeof value !== 'string')
-    return {
-      type: 'isString'
-    };
+    return result;
     
   return null;
 }

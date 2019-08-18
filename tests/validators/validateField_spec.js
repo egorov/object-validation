@@ -6,7 +6,8 @@ describe('validateField', () => {
   const rules = [
     { type: 'isString' },
     { type: 'isRequired' },
-    { type: 'minLength', constraints: [2]}
+    { type: 'minLength', constraints: [2] },
+    { type: 'maxLength', constraints: [10] }
   ];
 
   it('should return null', () => {
@@ -45,8 +46,9 @@ describe('validateField', () => {
     };  
     const result = validateField(context);
 
-    expect(result.length).toBe(1);
+    expect(result.length).toBe(2);
     expect(result[0]).toEqual(rules[0]);
+    expect(result[1]).toEqual(rules[2]);
   });
 
   it('result should contain isRequired', () => {
@@ -59,8 +61,10 @@ describe('validateField', () => {
     };  
     const result = validateField(context);
 
-    expect(result.length).toBe(1);
-    expect(result[0]).toEqual(rules[1]);
+    expect(result.length).toBe(3);
+    expect(result[0]).toEqual(rules[0]);
+    expect(result[1]).toEqual(rules[1]);
+    expect(result[2]).toEqual(rules[2]);
   });
 
   it('result should contain isString and minLength', () => {
