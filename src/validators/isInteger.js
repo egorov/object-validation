@@ -3,6 +3,9 @@ function isInteger(value) {
   const result = {
     type: 'isInteger'
   };
+  
+  if(typeof value === 'undefined' || value === null)
+    return null;
 
   if(typeof value !== 'number')
     return result;

@@ -13,6 +13,9 @@ describe('maxLength', () => {
     expect(validate('jack', [5])).toBeNull();
     expect(validate(array, [3])).toBeNull();
     expect(validate(array, [4])).toBeNull();
+    expect(validate(void 0, [1])).toBeNull();
+    expect(validate(null, [1])).toBeNull();
+    expect(validate(() => 2, [1])).toBeNull();
   });
 
   it('should return an error', () => {
@@ -25,9 +28,7 @@ describe('maxLength', () => {
     expect(validate(array, [1])).toEqual({type, constraints: [1]});
     expect(validate({}, [1])).toEqual({type, constraints: [1]});
     expect(validate(true, [2])).toEqual({type, constraints: [2]});
-    expect(validate(() => 2, [1])).toEqual({type, constraints: [1]});
     expect(validate(35, [1])).toEqual({type, constraints: [1]});
-    expect(validate(void 0, [1])).toEqual({type, constraints: [1]});
   });
 
   it('should throw length value type error', () => {

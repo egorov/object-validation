@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/egorov/object-validation#readme",
   "devDependencies": {
+    "common-objects-metadata": "0.0.1",
     "eslint": "^6.1.0",
     "jasmine": "^3.4.0"
   }

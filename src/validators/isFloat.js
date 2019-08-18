@@ -4,6 +4,9 @@ function isFloat(value) {
     type: 'isFloat'
   };
 
+  if(typeof value === 'undefined' || value === null)
+    return null;
+
   if(typeof value !== 'number')
     return result;
 

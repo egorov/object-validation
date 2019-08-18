@@ -2,7 +2,7 @@ describe('validateObject', () => {
 
   const validateObject = require('../../src/validators/validateObject');
   const validators = require('../../src/validators/validators');
-  const rules = require('./personRules');
+  const rules = require('common-objects-metadata').person;
   const context = {
     rules,
     validators
@@ -34,32 +34,10 @@ describe('validateObject', () => {
     expect(result.gender[0]).toEqual(rules.gender[0]);
   });
 
-  it('should return total validation failed result', () => {
-
-    context.value = {};
-    const result = validateObject(context);
-    
-    expect(result.firstName.length).toEqual(4);
-    expect(result.firstName[0]).toEqual(rules.firstName[0]);
-    expect(result.firstName[1]).toEqual(rules.firstName[1]);
-    expect(result.firstName[2]).toEqual(rules.firstName[2]);
-    expect(result.firstName[3]).toEqual(rules.firstName[3]);
-
-    expect(result.lastName.length).toEqual(4);
-    expect(result.lastName[0]).toEqual(rules.lastName[0]);
-    expect(result.lastName[1]).toEqual(rules.lastName[1]);
-    expect(result.lastName[2]).toEqual(rules.lastName[2]);
-    expect(result.lastName[3]).toEqual(rules.lastName[3]);
-
-    expect(result.gender.length).toEqual(2);
-    expect(result.gender[0]).toEqual(rules.gender[0]);
-    expect(result.gender[1]).toEqual(rules.gender[1]);
-  });
-
   it('should check validation results', () => {
 
     const resultSet = require('./personResultSet');
-    const ruleSet = require('./ruleSet');
+    const ruleSet = require('common-objects-metadata');
 
     for(const dto of resultSet) {
 

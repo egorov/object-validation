@@ -7,17 +7,17 @@ function maxLength(value, constraints) {
   validateConstraints(constraints);
   validateInteger(constraints[0], 'length');
 
+  if(typeof value === 'undefined' || value === null)
+    return null;
+
+  if(typeof value === 'function')
+    return null;
+
   const result = {
     type: 'maxLength',
     constraints: constraints.slice()
   };
-
-  if(typeof value === 'undefined' || typeof value === 'function')
-    return result;
-
-  if(value === null)
-    return result;
-
+  
   if(!{}.hasOwnProperty.call(value, 'length'))
     return result;
 

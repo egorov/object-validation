@@ -4,11 +4,8 @@ function isString(value) {
     type: 'isString'
   };
 
-  if(typeof value === 'undefined')
-    return result;
-
-  if(value === null)
-    return result;
+  if(typeof value === 'undefined' || value === null)
+    return null;
 
   if(typeof value !== 'string')
     return result;

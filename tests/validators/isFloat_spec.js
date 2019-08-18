@@ -5,6 +5,8 @@ describe('isFloat', () => {
   it('should return null', () => {
 
     expect(validate(1.23)).toBeNull();
+    expect(validate(void 0)).toBeNull();
+    expect(validate(null)).toBeNull();
   });
 
   it('should return error', () => {
@@ -14,7 +16,6 @@ describe('isFloat', () => {
     };
 
     expect(validate(45)).toEqual(error);
-    expect(validate(null)).toEqual(error);
     expect(validate({})).toEqual(error);
     expect(validate([])).toEqual(error);
     expect(validate('text')).toEqual(error);

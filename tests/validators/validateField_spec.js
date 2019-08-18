@@ -3,12 +3,7 @@ describe('validateField', () => {
   const validators = require('../../src/validators/validators');
   const validateField = require('../../src/validators/validateField');
   const fieldName = 'firstName';
-  const rules = [
-    { type: 'isString' },
-    { type: 'isRequired' },
-    { type: 'minLength', constraints: [2] },
-    { type: 'maxLength', constraints: [10] }
-  ];
+  const rules = require('common-objects-metadata').person.firstName;
 
   it('should return null', () => {
 
@@ -62,11 +57,8 @@ describe('validateField', () => {
     };  
     const result = validateField(context);
 
-    expect(result.length).toBe(4);
-    expect(result[0]).toEqual(rules[0]);
-    expect(result[1]).toEqual(rules[1]);
-    expect(result[2]).toEqual(rules[2]);
-    expect(result[3]).toEqual(rules[3]);
+    expect(result.length).toBe(1);
+    expect(result[0]).toEqual(rules[1]);
   });
 
   it('result should contain isString and minLength', () => {

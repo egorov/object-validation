@@ -12,18 +12,8 @@ module.exports = [
     type: 'person',
     payload: {},
     expectedValidationResult: {
-      firstName: [
-        { type: 'isString' },
-        { type: 'isRequired' },
-        { type: 'minLength', constraints: [2] },
-        { type: 'maxLength', constraints: [100] }
-      ],
-      lastName: [
-        { type: 'isString' },
-        { type: 'isRequired' },
-        { type: 'minLength', constraints: [2] },
-        { type: 'maxLength', constraints: [100] }
-      ],
+      firstName: [{ type: 'isRequired' }],
+      lastName: [{ type: 'isRequired' }],
       gender: [
         { 
           type: 'inRange', 

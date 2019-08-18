@@ -7,7 +7,7 @@ describe('Person', () => {
     expect(person.firstName).toEqual('Jack');
     expect(person.lastName).toEqual('Sparrow');
     expect(person.gender).toEqual('Male');
-    expect(person.birthDate).toEqual(new Date(1960, 10, 10));
+    expect(person.birthDate).toEqual(new Date(1960, 10, 10).valueOf());
     expect(person.birthPlace).toEqual('Los Angeles');
   });
 });

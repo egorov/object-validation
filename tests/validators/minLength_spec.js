@@ -13,6 +13,9 @@ describe('minLength', () => {
     expect(validate('echo', [2])).toBeNull();
     expect(validate(array, [2])).toBeNull();
     expect(validate(array, [3])).toBeNull();
+    expect(validate(void 0, [1])).toBeNull();
+    expect(validate(null, [3])).toBeNull();
+    expect(validate(() => 2, [1])).toBeNull();
   });
 
   it('should return an error', () => {
@@ -21,11 +24,8 @@ describe('minLength', () => {
 
     expect(validate('echo', [5])).toEqual({type, constraints: [5]});
     expect(validate(array, [4])).toEqual({type, constraints: [4]});
-    expect(validate(void 0, [1])).toEqual({type, constraints: [1]});
-    expect(validate(null, [3])).toEqual({type, constraints: [3]});
     expect(validate({}, [1])).toEqual({type, constraints: [1]});
     expect(validate(true, [2])).toEqual({type, constraints: [2]});
-    expect(validate(() => 2, [1])).toEqual({type, constraints: [1]});
     expect(validate(35, [1])).toEqual({type, constraints: [1]});
   });
 
