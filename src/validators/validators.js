@@ -5,6 +5,7 @@ const maxLength = require('./maxLength');
 const inRange = require('./inRange');
 const isInteger = require('./isInteger');
 const isFloat = require('./isFloat');
+const isUrl = require('./isUrl');
 
 module.exports = {
   isRequired,
@@ -13,5 +14,6 @@ module.exports = {
   maxLength,
   inRange,
   isInteger,
-  isFloat
+  isFloat,
+  isUrl
 };

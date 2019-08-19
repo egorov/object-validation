@@ -50,4 +50,11 @@ describe('validators', () => {
 
     expect(validators.isFloat).toBe(isFloat);
   });
+
+  it('should supply isUrl', () => {
+
+    const isUrl = require('../../src/validators/isUrl');
+
+    expect(validators.isUrl).toBe(isUrl);
+  });
 });
