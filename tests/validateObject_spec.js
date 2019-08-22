@@ -1,7 +1,7 @@
 describe('validateObject', () => {
 
-  const validateObject = require('../../src/validators/validateObject');
-  const validators = require('../../src/validators/validators');
+  const validateObject = require('../src/validateObject');
+  const validators = require('../src/validators');
   const rules = require('common-objects-metadata').person;
   const context = {
     rules,
@@ -10,7 +10,7 @@ describe('validateObject', () => {
 
   it('should return null', () => {
 
-    context.value = require('./Person');
+    context.value = require('./validators/Person');
     
     expect(validateObject(context)).toBeNull();
   });
@@ -36,7 +36,7 @@ describe('validateObject', () => {
 
   it('should check validation results', () => {
 
-    const resultSet = require('./personResultSet');
+    const resultSet = require('./validators/personResultSet');
     const ruleSet = require('common-objects-metadata');
 
     for(const dto of resultSet) {

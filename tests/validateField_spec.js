@@ -1,7 +1,7 @@
 describe('validateField', () => {
 
-  const validators = require('../../src/validators/validators');
-  const validateField = require('../../src/validators/validateField');
+  const validators = require('../src/validators');
+  const validateField = require('../src/validateField');
   const fieldName = 'firstName';
   const rules = require('common-objects-metadata').person.firstName;
 
