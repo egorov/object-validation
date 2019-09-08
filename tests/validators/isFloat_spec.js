@@ -12,7 +12,7 @@ describe('isFloat', () => {
   it('should return error', () => {
 
     const error = {
-      type: 'isFloat'
+      it: 'must be a floating point number'
     };
 
     expect(validate(45)).toEqual(error);

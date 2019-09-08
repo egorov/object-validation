@@ -3,7 +3,7 @@ describe('validateField', () => {
   const validators = require('../src/validators');
   const validateField = require('../src/validateField');
   const fieldName = 'firstName';
-  const rules = require('common-objects-metadata').person.firstName;
+  const rules = require('../../common-objects-metadata').person.firstName;
 
   it('should return null', () => {
 

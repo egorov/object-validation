@@ -1,7 +1,7 @@
 function isString(value) {
 
   const result = {
-    type: 'isString'
+    it: 'should be a string'
   };
 
   if(typeof value === 'undefined' || value === null)

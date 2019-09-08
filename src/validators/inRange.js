@@ -1,15 +1,15 @@
 const validateConstraints = require('./validateConstraints');
 
-function inRange(value, constraints) {
+function inRange(value, range) {
   
-  validateConstraints(constraints);
+  validateConstraints(range);
 
-  if(constraints.includes(value))
+  if(range.includes(value))
     return null;
 
   return {
-    type: 'inRange',
-    constraints
+    it: 'must have a value in the range',
+    of: range
   };
 }
 module.exports = inRange;

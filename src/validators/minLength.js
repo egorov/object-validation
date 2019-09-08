@@ -1,11 +1,9 @@
 /* eslint prefer-reflect: "off" */
-const validateConstraints = require('./validateConstraints');
 const validateInteger = require('./validateInteger');
 
-function minLength(value, constraints) {
+function minLength(value, length) {
 
-  validateConstraints(constraints);
-  validateInteger(constraints[0], 'length');
+  validateInteger(length, 'length');
 
   if(typeof value === 'undefined' || value === null)
     return null;
@@ -14,14 +12,14 @@ function minLength(value, constraints) {
     return null;
 
   const result = {
-    type: 'minLength',
-    constraints: constraints.slice()
+    it: 'minimum length',
+    is: length
   };
   
   if(!{}.hasOwnProperty.call(value, 'length'))
     return result;
   
-  if(value.length < constraints[0])
+  if(value.length < length)
     return result;
 
   return null;

@@ -16,7 +16,7 @@ function isUrl(value) {
       throw error;
 
     return {
-      type: 'isUrl'
+      it: 'should be url'
     };
   }
 }

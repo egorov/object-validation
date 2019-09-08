@@ -1,7 +1,7 @@
 function isRequired(value) {
 
   const result = {
-    type: 'isRequired'
+    it: 'value is required'
   };
 
   if(typeof value === 'undefined')

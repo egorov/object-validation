@@ -1,7 +1,7 @@
 function isFloat(value) {
 
   const result = {
-    type: 'isFloat'
+    it: 'must be a floating point number'
   };
 
   if(typeof value === 'undefined' || value === null)

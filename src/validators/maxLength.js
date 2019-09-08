@@ -1,11 +1,9 @@
 /* eslint prefer-reflect: "off" */
-const validateConstraints = require('./validateConstraints');
 const validateInteger = require('./validateInteger');
 
-function maxLength(value, constraints) {
+function maxLength(value, length) {
 
-  validateConstraints(constraints);
-  validateInteger(constraints[0], 'length');
+  validateInteger(length, 'length');
 
   if(typeof value === 'undefined' || value === null)
     return null;
@@ -14,14 +12,14 @@ function maxLength(value, constraints) {
     return null;
 
   const result = {
-    type: 'maxLength',
-    constraints: constraints.slice()
+    it: 'maximum length',
+    is: length
   };
   
   if(!{}.hasOwnProperty.call(value, 'length'))
     return result;
 
-  if(value.length > constraints[0])
+  if(value.length > length)
     return result;
 
   return null;

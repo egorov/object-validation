@@ -2,7 +2,7 @@ describe('validateObject', () => {
 
   const validateObject = require('../src/validateObject');
   const validators = require('../src/validators');
-  const rules = require('common-objects-metadata').person;
+  const rules = require('../../common-objects-metadata').person;
   const context = {
     rules,
     validators
@@ -37,7 +37,7 @@ describe('validateObject', () => {
   it('should check validation results', () => {
 
     const resultSet = require('./validators/personResultSet');
-    const ruleSet = require('common-objects-metadata');
+    const ruleSet = require('../../common-objects-metadata');
 
     for(const dto of resultSet) {
 

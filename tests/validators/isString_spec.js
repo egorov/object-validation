@@ -14,12 +14,13 @@ describe('isString', () => {
   it('should return error', () => {
 
     const result = {
-      type: 'isString'
+      it: 'should be a string'
     };
     
     expect(validate({})).toEqual(result);
     expect(validate(true)).toEqual(result);
     expect(validate([])).toEqual(result);
+    expect(validate(['a'])).toEqual(result);
     expect(validate(() => 1)).toEqual(result);
     expect(validate(1)).toEqual(result);
   });

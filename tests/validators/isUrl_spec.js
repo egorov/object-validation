@@ -13,7 +13,7 @@ describe('isUrl', () => {
   it('should return error', () => {
 
     const error = {
-      type: 'isUrl'
+      it: 'should be url'
     };
 
     expect(validate(1)).toEqual(error);

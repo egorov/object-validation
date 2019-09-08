@@ -14,7 +14,7 @@ describe('isInteger', () => {
   it('should return error', () => {
 
     const error = { 
-      type: 'isInteger' 
+      it: 'must be an integer' 
     };
 
     expect(validate(1.44)).toEqual(error);

@@ -45,49 +45,30 @@ describe('inRange', () => {
     expect(validate(45.55, mix)).toBeNull();
     expect(validate(true, mix)).toBeNull();
     expect(validate(null, mix)).toBeNull();
+    expect(validate(void 0, [void 0])).toBeNull();
   });
 
   it('should return error', () => {
 
     const error = {
-      type: 'inRange',
-      constraints: strings
+      it: 'must have a value in the range',
+      of: strings
     };
 
     expect(validate('Unknown', strings)).toEqual(error);
 
-    error.constraints = integers;
+    error.of = integers;
     expect(validate(33, integers)).toEqual(error);
 
-    error.constraints = dates;
+    error.of = dates;
     expect(validate(new Date(2000, 2, 2), dates)).toEqual(error);
 
-    error.constraints = numbers;
+    error.of = numbers;
     expect(validate(55.95, numbers)).toEqual(error);
 
-    error.constraints = mix;
+    error.of = mix;
     expect(validate({}, mix)).toEqual(error);
-  });
 
-  it('should throw constraints type error', () => {
-
-    const error = new TypeError('constraints value should be an array');
-
-    expect(() => validate('echo', 3)).toThrow(error);
-    expect(() => validate('echo', 1.22)).toThrow(error);
-    expect(() => validate('echo', -2)).toThrow(error);
-    expect(() => validate('echo', 0)).toThrow(error);
-    expect(() => validate('echo', true)).toThrow(error);
-    expect(() => validate('echo', null)).toThrow(error);
-    expect(() => validate('echo', void 0)).toThrow(error);
-    expect(() => validate('echo', {})).toThrow(error);
-    expect(() => validate('echo', '66')).toThrow(error);
-  });
-
-  it('should throw constraint length error', () => {
-
-    const error = new Error('constraints should contain values');
-
-    expect(() => validate('echo', [])).toThrow(error);
+    expect(validate(void 0, mix)).toEqual(error);
   });
 });

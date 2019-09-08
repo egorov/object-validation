@@ -1,7 +1,7 @@
 function isInteger(value) {
 
   const result = {
-    type: 'isInteger'
+    it: 'must be an integer'
   };
   
   if(typeof value === 'undefined' || value === null)

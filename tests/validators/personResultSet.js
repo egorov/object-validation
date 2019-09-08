@@ -12,17 +12,17 @@ module.exports = [
     type: 'person',
     payload: {},
     expectedValidationResult: {
-      firstName: [{ type: 'isRequired' }],
-      lastName: [{ type: 'isRequired' }],
+      firstName: [{ it: 'value is required' }],
+      lastName: [{ it: 'value is required' }],
       gender: [
         { 
-          type: 'inRange', 
-          constraints: [
-            'Male', 
+          it: 'must have a value in the range', 
+          of: [
+            'Male',
             'Female'
-          ] 
+          ]
         },
-        { type: 'isRequired' }
+        { it: 'value is required' }
       ]
     }
   }
