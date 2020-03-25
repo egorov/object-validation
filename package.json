@@ -1,11 +1,9 @@
 {
   "name": "object-validation",
   "version": "0.0.1",
-  "description": "Object content validation tools.",
+  "description": "Object properties validation tools.",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint src tests ./index.js",
-    "pretest": "npm run lint",
     "test": "node node_modules/jasmine/bin/jasmine --config=jasmine.json"
   },
   "repository": {
@@ -24,8 +22,6 @@
   },
   "homepage": "https://github.com/egorov/object-validation#readme",
   "devDependencies": {
-    "common-objects-metadata": "0.0.1",
-    "eslint": "^6.1.0",
     "jasmine": "^3.4.0"
   }
 }

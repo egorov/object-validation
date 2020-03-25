@@ -1,4 +1,3 @@
-/* eslint prefer-reflect: "off" */
 const validateInteger = require('./validateInteger');
 
 function minLength(value, length) {

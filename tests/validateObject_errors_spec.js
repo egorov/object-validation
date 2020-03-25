@@ -3,7 +3,7 @@ describe('validateObject', () => {
   const validateObject = require('../src/validateObject');
   const validators = require('../src/validators');
   const person = require('./validators/Person');
-  const rules = require('common-objects-metadata').person;
+  const rules = require('./person_metadata');
 
   it('should throw if value is undefined', () => {
 

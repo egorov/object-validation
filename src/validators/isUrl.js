@@ -1,5 +1,3 @@
-/* eslint no-new: "off" */
-
 function isUrl(value) {
   
   if(typeof value === 'undefined' || value === null)
@@ -12,7 +10,7 @@ function isUrl(value) {
   }
   catch(error) {
     
-    if(!error.name.includes('ERR_INVALID_URL'))
+    if(!error.code.includes('ERR_INVALID_URL'))
       throw error;
 
     return {

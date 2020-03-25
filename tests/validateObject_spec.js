@@ -2,7 +2,7 @@ describe('validateObject', () => {
 
   const validateObject = require('../src/validateObject');
   const validators = require('../src/validators');
-  const rules = require('../../common-objects-metadata').person;
+  const rules = require('./person_metadata');
   const context = {
     rules,
     validators
