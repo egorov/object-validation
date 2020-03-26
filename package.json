@@ -23,5 +23,8 @@
   "homepage": "https://github.com/egorov/object-validation#readme",
   "devDependencies": {
     "jasmine": "^3.4.0"
+  },
+  "dependencies": {
+    "redux": "^4.0.5"
   }
 }
