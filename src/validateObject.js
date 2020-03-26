@@ -1,4 +1,3 @@
-/* eslint prefer-reflect: "off" */
 const validateField = require('./validateField');
 
 function validateObject(context) {

@@ -1,4 +1,3 @@
-/* eslint prefer-reflect: "off" */
 function validateField(context) {
   
   let errors = null;

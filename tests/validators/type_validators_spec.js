@@ -1,11 +1,16 @@
 describe('type validators', () => {
 
   const validators = require('../../src/validators/type_validators');
+  const expected = {
+    integer: require('../../src/validators/integer'),
+    string: require('../../src/validators/string')    
+  }
 
-  it('should contain string validator', () => {
+  it('should contain validators', () => {
 
-    const validator = require('../../src/validators/string');
+    for(const property in expected) {
 
-    expect(validators.string).toEqual(validator);
+      expect(validators[property]).toEqual(expected[property]);
+    }
   });
 });
