@@ -5,9 +5,9 @@
 Expect validation function signature like this:
 
 ```javascript
-  function validate(value, constraints) {
+  function validate(value, rules) {
     
-    /// constraints - is array of variables required to validate value
+    /// rules - used to validate value
 
     if(isValid(value))
       return null;
