@@ -7,7 +7,7 @@ describe('makeStore', () => {
     store = makeStore();
   });
 
-  it('should always return new value', () => {
+  it('should always return new store', () => {
     
     const one = makeStore();
     const another = makeStore();
@@ -30,21 +30,6 @@ describe('makeStore', () => {
     expect(store.getState().validators).toEqual(payload);
   });
 
-  it('should reduce value', () => {
-
-    const payload = {
-      name: 'jack'
-    };
-    const action = {
-      type: 'value',
-      payload
-    };
-
-    store.dispatch(action);
-
-    expect(store.getState().value).toEqual(payload);
-  });
-
   it('should reduce rules', () => {
 
     const payload = {
@@ -60,6 +45,10 @@ describe('makeStore', () => {
     store.dispatch(action);
 
     expect(store.getState().rules).toEqual(payload);
+
+    store.dispatch({type: 'model'});
+
+    expect(store.getState().rules).toBeNull();
   });
 
   it('should reduce validation result', () => {
@@ -79,14 +68,63 @@ describe('makeStore', () => {
     expect(store.getState().result).toEqual(payload);
   });
 
-  it('should clear validation result', () => {
+  it('should reduce metadata', () => {
 
+    const payload = {
+      name: {
+        type: 'string'
+      }
+    };
     const action = {
-      type: 'clear validation result'
+      type: 'metadata',
+      payload
     };
 
     store.dispatch(action);
 
-    expect(store.getState().result).toBeNull();
+    expect(store.getState().metadata).toEqual(payload);
+  });
+
+  it('should reduce model', () => {
+
+    const payload = {
+      name: {
+        first_name: 'jack'
+      }
+    };
+    const action = {
+      type: 'model',
+      payload
+    };
+
+    store.dispatch(action);
+
+    expect(store.getState().model).toEqual(payload);
+  });
+
+  it('should reduce fieldName', () => {
+
+    const payload = 'first_name';
+    const action = {
+      type: 'field name',
+      payload
+    };
+
+    store.dispatch(action);
+
+    expect(store.getState().fieldName).toEqual(payload);
+  });
+
+  it('should reduce fieldValue', () => {
+
+    const payload = 'jack';
+    const action = {
+      type: 'field value',
+      payload
+    };
+
+    store.dispatch(action);
+
+    expect(store.getState().fieldValue).toEqual(payload);
   });
 });
