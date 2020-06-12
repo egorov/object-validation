@@ -1,10 +1,8 @@
 module.exports = {
-  'value is required': require('./validators/isRequired'),
-  'should be a string': require('./validators/isString'),
-  'minimum length': require('./validators/minLength'),
-  'maximum length': require('./validators/maxLength'),
-  'must have a value in the range': require('./validators/inRange'),
-  'must be an integer': require('./validators/isInteger'),
-  'must be a floating point number': require('./validators/isFloat'),
-  'should be url': require('./validators/isUrl')
+  type: require('./validators/type'),
+  is_required: require('./validators/is_required'),
+  from_set: require('./validators/from_set'),
+  in_range: require('./validators/in_range'),
+  min_length: require('./validators/min_length'),
+  max_length: require('./validators/max_length')
 };

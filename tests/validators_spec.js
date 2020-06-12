@@ -1,60 +1,20 @@
 describe('validators', () => {
 
-  const validators = require('../src/validators');
+  const actual = require('../src/validators');
+  const expected = {
+    type: require('../src/validators/type'),
+    is_required: require('../src/validators/is_required'),
+    from_set: require('../src/validators/from_set'),
+    in_range: require('../src/validators/in_range'),
+    max_length: require('../src/validators/max_length'),
+    min_length: require('../src/validators/min_length')    
+  };
 
-  it('should supply isRequired', () => {
+  it('should contain method', () => {
 
-    const isRequired = require('../src/validators/isRequired');
+    for(const property in expected) {
 
-    expect(validators['value is required']).toBe(isRequired);
-  });
-
-  it('should supply isString', () => {
-
-    const isString = require('../src/validators/isString');
-
-    expect(validators['should be a string']).toBe(isString);
-  });
-
-  it('should supply minLength', () => {
-
-    const minLength = require('../src/validators/minLength');
-
-    expect(validators['minimum length']).toBe(minLength);
-  });
-
-  it('should supply maxLength', () => {
-
-    const maxLength = require('../src/validators/maxLength');
-
-    expect(validators['maximum length']).toBe(maxLength);
-  });
-
-  it('should supply inRange', () => {
-
-    const inRange = require('../src/validators/inRange');
-
-    expect(validators['must have a value in the range']).toBe(inRange);
-  });
-
-  it('should supply isInteger', () => {
-
-    const isInteger = require('../src/validators/isInteger');
-
-    expect(validators['must be an integer']).toBe(isInteger);
-  });
-
-  it('should supply isFloat', () => {
-
-    const isFloat = require('../src/validators/isFloat');
-
-    expect(validators['must be a floating point number']).toBe(isFloat);
-  });
-
-  it('should supply isUrl', () => {
-
-    const isUrl = require('../src/validators/isUrl');
-
-    expect(validators['should be url']).toBe(isUrl);
+      expect(actual[property]).toBe(expected[property]);
+    }
   });
 });

@@ -1,6 +1,6 @@
-describe('isRequired', () => {
+describe('is_required', () => {
 
-  const validate = require('../../src/validators/isRequired');
+  const validate = require('../../src/validators/is_required');
 
   it('should return null', () => {
 
@@ -17,7 +17,7 @@ describe('isRequired', () => {
   it('should return error', () => {
 
     const result = {
-      it: 'value is required'
+      is_required: true
     };
 
     expect(validate(null)).toEqual(result);

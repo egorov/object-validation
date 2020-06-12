@@ -1,7 +1,7 @@
-function isRequired(value) {
+function is_required(value) {
 
   const result = {
-    it: 'value is required'
+    is_required: true
   };
 
   if(typeof value === 'undefined')
@@ -13,4 +13,4 @@ function isRequired(value) {
   return null;
 }
 
-module.exports = isRequired;
+module.exports = is_required;
