@@ -1,4 +1,4 @@
-describe('validateField', () => {
+describe('validate', () => {
 
   const makeStore = require('../src/store/makeStore');
   let store = null;

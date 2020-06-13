@@ -11,7 +11,7 @@ function fieldName(state = null, action) {
 
 function fieldValue(state = null, action) {
   switch(action.type) {
-    case 'field value':
+    case 'field value': 
       return action.payload;
     case 'model':
       return null;
