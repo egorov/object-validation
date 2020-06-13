@@ -4,12 +4,12 @@ describe('type ', () => {
 
   it('float validation should return null', () => {
 
-    expect(validate('float', 1.23)).toBeNull();
-    expect(validate('float', -1.23)).toBeNull();
-    expect(validate('float', 0)).toBeNull();
-    expect(validate('float', 0.43)).toBeNull();
-    expect(validate('float', void 0)).toBeNull();
-    expect(validate('float', null)).toBeNull();
+    expect(validate(1.23, 'float')).toBeNull();
+    expect(validate(-1.23, 'float')).toBeNull();
+    expect(validate(0, 'float')).toBeNull();
+    expect(validate(0.43, 'float')).toBeNull();
+    expect(validate(void 0, 'float')).toBeNull();
+    expect(validate(null, 'float')).toBeNull();
   });
 
   it('float validation should return error', () => {
@@ -18,20 +18,20 @@ describe('type ', () => {
       type: 'float'
     };
 
-    expect(validate('float', 45)).toEqual(error);
-    expect(validate('float', {})).toEqual(error);
-    expect(validate('float', [])).toEqual(error);
-    expect(validate('float', 'text')).toEqual(error);
-    expect(validate('float', true)).toEqual(error);
+    expect(validate(45, 'float')).toEqual(error);
+    expect(validate({}, 'float')).toEqual(error);
+    expect(validate([], 'float')).toEqual(error);
+    expect(validate('text', 'float')).toEqual(error);
+    expect(validate(true, 'float')).toEqual(error);
   });
 
   it('integer validation should return null', () => {
 
-    expect(validate('integer', 1)).toBeNull();
-    expect(validate('integer', -1)).toBeNull();
-    expect(validate('integer', 0)).toBeNull();
-    expect(validate('integer', void 0)).toBeNull();
-    expect(validate('integer', null)).toBeNull();
+    expect(validate(1, 'integer')).toBeNull();
+    expect(validate(-1, 'integer')).toBeNull();
+    expect(validate(0, 'integer')).toBeNull();
+    expect(validate(void 0, 'integer')).toBeNull();
+    expect(validate(null, 'integer')).toBeNull();
   });
 
   it('integer validation should return error', () => {
@@ -40,21 +40,21 @@ describe('type ', () => {
       type: 'integer' 
     };
 
-    expect(validate('integer', 1.44)).toEqual(error);
-    expect(validate('integer', {})).toEqual(error);
-    expect(validate('integer', [])).toEqual(error);
-    expect(validate('integer', 'text')).toEqual(error);
-    expect(validate('integer', true)).toEqual(error);
-    expect(validate('integer', () => 1)).toEqual(error);
+    expect(validate(1.44, 'integer')).toEqual(error);
+    expect(validate({}, 'integer')).toEqual(error);
+    expect(validate([], 'integer')).toEqual(error);
+    expect(validate('text', 'integer')).toEqual(error);
+    expect(validate(true, 'integer')).toEqual(error);
+    expect(validate(() => 1, 'integer')).toEqual(error);
   });
 
   it('string validation should return null', () => {
 
-    expect(validate('string', 'value')).toBeNull();
-    expect(validate('string', '')).toBeNull();
-    expect(validate('string', ' ')).toBeNull();
-    expect(validate('string', null)).toBeNull();
-    expect(validate('string', void 0)).toBeNull();
+    expect(validate('value', 'string')).toBeNull();
+    expect(validate('', 'string')).toBeNull();
+    expect(validate(' ', 'string')).toBeNull();
+    expect(validate(null, 'string')).toBeNull();
+    expect(validate(void 0, 'string')).toBeNull();
   });
 
   it('string validation should return error', () => {
@@ -63,21 +63,21 @@ describe('type ', () => {
       type: 'string'
     };
     
-    expect(validate('string', {})).toEqual(result);
-    expect(validate('string', true)).toEqual(result);
-    expect(validate('string', [])).toEqual(result);
-    expect(validate('string', ['a'])).toEqual(result);
-    expect(validate('string', () => 1)).toEqual(result);
-    expect(validate('string', 1)).toEqual(result);
+    expect(validate({}, 'string')).toEqual(result);
+    expect(validate(true, 'string')).toEqual(result);
+    expect(validate([], 'string')).toEqual(result);
+    expect(validate(['a'], 'string')).toEqual(result);
+    expect(validate(() => 1, 'string')).toEqual(result);
+    expect(validate(1, 'string')).toEqual(result);
   });  
 
   it('url validation should return null', () => {
 
-    expect(validate('url', 'http://localhost')).toBeNull();
-    expect(validate('url', 'https://domain.local:8888/app')).toBeNull();
-    expect(validate('url', 'file://empty.txt')).toBeNull();
-    expect(validate('url', void 0)).toBeNull();
-    expect(validate('url', null)).toBeNull();
+    expect(validate('http://localhost', 'url')).toBeNull();
+    expect(validate('https://domain.local:8888/app', 'url')).toBeNull();
+    expect(validate('file://empty.txt', 'url')).toBeNull();
+    expect(validate(void 0, 'url')).toBeNull();
+    expect(validate(null, 'url')).toBeNull();
   });
 
   it('url validation should return error', () => {
@@ -86,12 +86,12 @@ describe('type ', () => {
       type: 'url'
     };
 
-    expect(validate('url', 1)).toEqual(error);
-    expect(validate('url', 'not url')).toEqual(error);
-    expect(validate('url', true)).toEqual(error);
-    expect(validate('url', {})).toEqual(error);
-    expect(validate('url', [])).toEqual(error);
-    expect(validate('url', 1.55)).toEqual(error);
-    expect(validate('url', () => 1)).toEqual(error);
+    expect(validate(1, 'url')).toEqual(error);
+    expect(validate('not url', 'url')).toEqual(error);
+    expect(validate(true, 'url')).toEqual(error);
+    expect(validate({}, 'url')).toEqual(error);
+    expect(validate([], 'url')).toEqual(error);
+    expect(validate(1.55, 'url')).toEqual(error);
+    expect(validate(() => 1, 'url')).toEqual(error);
   });  
 });

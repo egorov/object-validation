@@ -21,21 +21,32 @@ function validate(store) {
 
     const value = model[property];
 
+    const errors = [];
+
     for(const rule in rules) {
 
-      const validate = validators[rule];
+      let validate = null;
+
+      if(rule === 'type')
+        validate = validators.type;
+      else
+        validate = validators[rule];
 
       if(!validate)
         continue;
       
-      const errors = validate(value, rules[rule]);
+      const error = validate(value, rules[rule]);
 
-      if(!errors)
+      if(!error)
         continue;
 
+      errors.push(error);
+    }
+
+    if(errors.length > 0) {
       const result = {};
       result[property] = errors;
-      store.dispatch({type: 'validation result', payload: result});
+      store.dispatch({type: 'validation result', payload: result});  
     }
   }
 }

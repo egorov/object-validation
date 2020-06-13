@@ -1,6 +1,6 @@
 const validators = require('./type_validators');
 
-function validateType(name, value) {
+function validateType(value, name) {
 
   const validate = validators[name];
 
