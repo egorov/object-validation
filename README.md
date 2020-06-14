@@ -1,7 +1,7 @@
 # Инструменты валидации моделей данных
 
 ```javascript
-const validator = require('object-validation').makeValidator();
+const ValidateCommand = require('object-validation').ValidateCommand;
 const metadata = {
   firstName: {
     type: 'string',
@@ -36,7 +36,10 @@ const value = {
   birthPlace: 'Los Angeles'
 };
 
-validator.use('metadata', metadata);
+const command = new ValidateCommand();
 
-const result = validator.validate(value);
+command.use('metadata', metadata);
+command.use('model', value);
+
+const result = command.execute();
 ```
