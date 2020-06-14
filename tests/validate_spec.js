@@ -1,23 +1,24 @@
 describe('validate', () => {
 
   const makeStore = require('../src/store/makeStore');
-  let store = null;
   const validators = require('../src/validators');
-  const metadata = require('./another_person_metadata');
-  const model = require('./validators/Person');
+  const personTestResultSet = require('./PersonTestsResultSet');
+  const metadata = require('./PersonMetadata');
   const validate = require('../src/validate');
+  const store = makeStore();
 
-  beforeEach(() => {
-    store = makeStore();
-    store.dispatch({type: 'validators', payload: validators});
-    store.dispatch({type: 'metadata', payload: metadata});
-    store.dispatch({type: 'model', payload: model});
-  });
+  store.dispatch({type: 'validators', payload: validators});
+  store.dispatch({type: 'metadata', payload: metadata});
 
-  it('should not return validation errors', () => {
+  it('should iterate over set', () => {
 
-    validate(store);
+    for(const item of personTestResultSet) {
 
-    expect(store.getState().result).toBeNull();
+      store.dispatch({type: 'model', payload: item.model});
+
+      validate(store);
+
+      expect(store.getState().result).toEqual(item.result);
+    }
   });
 });
