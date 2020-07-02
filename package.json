@@ -1,5 +1,5 @@
 {
-  "name": "@egorov/object-validation",
+  "name": "plain-object-validation",
   "version": "0.0.1",
   "description": "Object properties validation tools.",
   "main": "index.js",
