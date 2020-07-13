@@ -10,6 +10,8 @@ describe('max length', () => {
   it('should return null', () => {
 
     expect(validate('jack', 4)).toBeNull();
+    expect(validate('jack ', 4)).toBeNull();
+    expect(validate(' jack ', 4)).toBeNull();
     expect(validate('jack', 5)).toBeNull();
     expect(validate(array, 3)).toBeNull();
     expect(validate(array, 4)).toBeNull();

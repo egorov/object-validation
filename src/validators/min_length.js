@@ -13,7 +13,7 @@ function min_length(value, length) {
 
   if(typeof value === 'string')
     if(value.trim().length < length) 
-      return { min_length: length};
+      return { min_length: length };
 
   return null;
 }
