@@ -25,6 +25,7 @@
     "jasmine": "^3.4.0"
   },
   "dependencies": {
+    "google-libphonenumber": "^3.2.10",
     "redux": "^4.0.5"
   }
 }

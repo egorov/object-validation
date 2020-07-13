@@ -93,5 +93,32 @@ describe('type ', () => {
     expect(validate([], 'url')).toEqual(error);
     expect(validate(1.55, 'url')).toEqual(error);
     expect(validate(() => 1, 'url')).toEqual(error);
-  });  
+  });
+
+  it('phone should return null', () => {
+
+    expect(validate('+7 912 922 81 57', 'phone')).toBeNull();
+    expect(validate('+1 202-456-1414', 'phone')).toBeNull();
+    expect(validate('+33 528.82.93.92', 'phone')).toBeNull();
+    expect(validate('+39 069 763-5756', 'phone')).toBeNull();
+    expect(validate('+86 10 6552 9988', 'phone')).toBeNull();
+    expect(validate('+386 1 655 9988', 'phone')).toBeNull();
+    expect(validate(void 0)).toBeNull();
+    expect(validate(null)).toBeNull();
+  });
+
+  it('phone should return error', () => {
+    
+    const error = {
+      type: 'phone'
+    };
+
+    expect(validate('joe@doe.local', 'phone')).toEqual(error);
+    expect(validate(1, 'phone')).toEqual(error);
+    expect(validate(true, 'phone')).toEqual(error);
+    expect(validate({}, 'phone')).toEqual(error);
+    expect(validate([], 'phone')).toEqual(error);
+    expect(validate('1 800 WRONG NUMBER', 'phone')).toEqual(error);
+    expect(validate('8 3452 220346', 'phone')).toEqual(error);
+  });
 });
