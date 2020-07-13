@@ -24,6 +24,9 @@ describe('min length', () => {
   it('should return an error', () => {
 
     expect(validate('echo', 5)).toEqual({min_length: 5});
+    expect(validate(' ', 1)).toEqual({min_length: 1});
+    expect(validate(' echo', 5)).toEqual({min_length: 5});
+    expect(validate(' echo ', 5)).toEqual({min_length: 5});
     expect(validate(array, 4)).toEqual({min_length: 4});
   });
 
