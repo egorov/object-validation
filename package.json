@@ -1,6 +1,6 @@
 {
   "name": "plain-object-validation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Object properties validation tools.",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "validation"
   ],
   "author": "Sergey Egorov",
-  "license": "UNLICENSED",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/egorov/object-validation/issues"
   },

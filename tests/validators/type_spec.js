@@ -121,4 +121,28 @@ describe('type ', () => {
     expect(validate('1 800 WRONG NUMBER', 'phone')).toEqual(error);
     expect(validate('8 3452 220346', 'phone')).toEqual(error);
   });
+
+  it('email should return null', () => {
+
+    expect(validate('joe@doe.local', 'email')).toBeNull();
+    expect(validate("&'*+-./=?^_{}~@mail.local", 'email')).toBeNull();
+    expect(validate('j`o`e@doe.local', 'email')).toBeNull();
+    expect(validate('joe`@doe.local', 'email')).toBeNull();
+    expect(validate('joe@doe.local', 'email')).toBeNull();
+  });
+
+  it('email should return error', () => {
+
+    const error = {
+      type: 'email'
+    };
+
+    expect(validate(null, 'email')).toEqual(error);
+    expect(validate(void 0, 'email')).toEqual(error);
+    expect(validate(1, 'email')).toEqual(error);
+    expect(validate(true, 'email')).toEqual(error);
+    expect(validate({}, 'email')).toEqual(error);
+    expect(validate([], 'email')).toEqual(error);
+    expect(validate('not email', 'email')).toEqual(error);
+  });
 });

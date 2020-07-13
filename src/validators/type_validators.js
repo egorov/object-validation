@@ -1,4 +1,5 @@
 module.exports = {
+  email: require('./email'),
   float: require('./float'),
   integer: require('./integer'),
   phone: require('./phone'),
