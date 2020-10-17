@@ -11,6 +11,7 @@ describe('float', () => {
     expect(validate(0.43)).toBeNull();
     expect(validate(void 0)).toBeNull();
     expect(validate(null)).toBeNull();
+    expect(validate('1.23')).toBeNull();
   });
 
   it('should return error', () => {
@@ -24,5 +25,6 @@ describe('float', () => {
     expect(validate([])).toEqual(error);
     expect(validate('text')).toEqual(error);
     expect(validate(true)).toEqual(error);
+    expect(validate('45')).toEqual(error);
   });
 });

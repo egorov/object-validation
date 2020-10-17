@@ -9,6 +9,7 @@ describe('integer', () => {
     expect(validate(0)).toBeNull();
     expect(validate(void 0)).toBeNull();
     expect(validate(null)).toBeNull();
+    expect(validate("1")).toBeNull();
   });
 
   it('should return error', () => {
@@ -23,5 +24,6 @@ describe('integer', () => {
     expect(validate('text')).toEqual(error);
     expect(validate(true)).toEqual(error);
     expect(validate(() => 1)).toEqual(error);
+    expect(validate("1.44")).toEqual(error);
   });
 });
