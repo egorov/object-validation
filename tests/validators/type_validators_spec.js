@@ -2,8 +2,12 @@ describe('type validators', () => {
 
   const validators = require('../../src/validators/type_validators');
   const expected = {
+    date: require('../../src/validators/date'),
+    email: require('../../src/validators/email'),
     float: require('../../src/validators/float'),
+    function: require('../../src/validators/function'),
     integer: require('../../src/validators/integer'),
+    phone: require('../../src/validators/phone'),
     string: require('../../src/validators/string'),
     url: require('../../src/validators/url') 
   }
