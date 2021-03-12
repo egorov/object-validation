@@ -1,34 +1,27 @@
-function validate(store) {
+module.exports = function validate(state) {
 
-  const state = store.getState();
-  const model = state.model;
+  if(!state.model) return;
 
-  if(model === null)
-    return;
+  if(!state.metadata) return;
 
-  const metadata = state.metadata;
+  state.result = null;
 
-  if(metadata === null)
-    return;
+  for(const property in state.metadata) {
 
-  for(const property in metadata) {
+    state.fieldName = property;
 
-    store.dispatch({type: 'field name', payload: property });    
+    state.fieldValue = state.model[property] || null;
 
-    store.dispatch({type: 'field value', payload: (model[property] || null) });
-
-    validateField(store);
+    validateField(state);
   }
 }
 
-function validateField(store) {
+function validateField(state) {
 
-  const state = store.getState();
   const property = state.fieldName;
   const rules = state.metadata[property];
 
-  if(!rules)
-    return;
+  if(!rules) return;
   
   const validators = state.validators;
   const errors = [];
@@ -47,7 +40,5 @@ function validateField(store) {
   }
 
   if(errors.length > 0) 
-    store.dispatch({type: 'validation result', payload: {[property]: errors}});  
+    state.result = Object.assign({}, state.result, { [property]: errors });
 }
-
-module.exports = validate;

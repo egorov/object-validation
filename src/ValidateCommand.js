@@ -1,25 +1,26 @@
-const makeStore = require('./store/makeStore');
 const validators = require('./validators');
 const validate = require('./validate');
 
-function ValidateCommand() {
+module.exports = function ValidateCommand() {
 
-  this.store = makeStore();
-  this.store.dispatch({type: 'validators', payload: validators});
+  this.state = {
+    validators
+  };
   this.use = use.bind(this);
   this.execute = execute.bind(this);
   
   function use(type, payload) {
-    this.store.dispatch({type, payload});
+    this.state.fieldName = null;
+    this.state.fieldValue = null;
+    this.state.result = null;
+    this.state.rules = null;
+    this.state[type] = payload;
   }
 
   function execute() {
-    validate(this.store);
+    
+    validate(this.state);
 
-    const result = this.store.getState().result;
-
-    return result;
+    return this.state.result;
   }
 }
-
-module.exports = ValidateCommand;
