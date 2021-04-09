@@ -1,10 +1,12 @@
 module.exports = function validate(state) {
 
-  if(!state.model) return;
+  reset(state);
 
-  if(!state.metadata) return;
+  if(!state.model)
+    throw new TypeError('state.model must be object');
 
-  state.result = null;
+  if(!state.metadata)
+    throw new TypeError('state.metadata must be object');
 
   for(const property in state.metadata) {
 
@@ -14,6 +16,12 @@ module.exports = function validate(state) {
 
     validateField(state);
   }
+}
+
+function reset(state) {
+  state.result = null;
+  state.fieldName = null;
+  state.fieldValue = null;
 }
 
 function validateField(state) {

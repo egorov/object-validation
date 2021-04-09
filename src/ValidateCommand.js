@@ -10,10 +10,6 @@ module.exports = function ValidateCommand() {
   this.execute = execute.bind(this);
   
   function use(type, payload) {
-    this.state.fieldName = null;
-    this.state.fieldValue = null;
-    this.state.result = null;
-    this.state.rules = null;
     this.state[type] = payload;
   }
 
