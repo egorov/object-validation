@@ -18,4 +18,28 @@ describe('ValidateCommand', () => {
       expect(result).toEqual(item.result);
     }
   });
+
+  it('should throw if no data to validate', () => {
+
+    const cmd = new ValidateCommand();
+    cmd.use('metadata', metadata);
+
+    expect(
+      () => cmd.execute()
+    ).toThrow(
+      new TypeError('state.model must be object')
+    );
+  });
+
+  it('should throw if no metadata to validate', () => {
+
+    const cmd = new ValidateCommand();
+    cmd.use('model', { key: 'value' });
+
+    expect(
+      () => cmd.execute()
+    ).toThrow(
+      new TypeError('state.metadata must be object')
+    );
+  });
 });
