@@ -145,4 +145,28 @@ describe('type ', () => {
     expect(validate([], 'email')).toEqual(error);
     expect(validate('not email', 'email')).toEqual(error);
   });
+
+  it('boolean should return null', () => {
+
+    expect(validate(true, 'boolean')).toBeNull();
+    expect(validate(false, 'boolean')).toBeNull();
+    expect(validate(new Boolean(), 'boolean')).toBeNull();
+    expect(validate(new Boolean(1), 'boolean')).toBeNull();
+  });
+
+  it('boolean should return error', () => {
+
+    const error = {
+      type: 'boolean'
+    };
+
+    expect(validate(null, 'boolean')).toEqual(error);
+    expect(validate(void 0, 'boolean')).toEqual(error);
+    expect(validate(1, 'boolean')).toEqual(error);
+    expect(validate('true', 'boolean')).toEqual(error);
+    expect(validate({}, 'boolean')).toEqual(error);
+    expect(validate([], 'boolean')).toEqual(error);
+    expect(validate(new Date(), 'boolean')).toEqual(error);
+    expect(validate(NaN, 'boolean')).toEqual(error);
+  });  
 });

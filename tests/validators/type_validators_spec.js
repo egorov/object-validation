@@ -2,6 +2,7 @@ describe('type validators', () => {
 
   const validators = require('../../src/validators/type_validators');
   const expected = {
+    boolean: require('../../src/validators/boolean'),
     date: require('../../src/validators/date'),
     email: require('../../src/validators/email'),
     float: require('../../src/validators/float'),

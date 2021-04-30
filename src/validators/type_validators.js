@@ -1,4 +1,5 @@
 module.exports = {
+  boolean: require('./boolean'),
   date: require('./date'),
   email: require('./email'),
   float: require('./float'),
