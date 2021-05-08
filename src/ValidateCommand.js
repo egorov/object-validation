@@ -26,7 +26,10 @@ module.exports = function ValidateCommand() {
   
       this.state.fieldName = property;
   
-      this.state.fieldValue = this.state.model[property] || null;
+      this.state.fieldValue = 
+        typeof this.state.model[property] === 'undefined' 
+        ? null
+        : this.state.model[property];
   
       validateField(this.state);
     }

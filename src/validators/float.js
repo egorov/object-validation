@@ -9,9 +9,9 @@ function float(value) {
 
   if(typeof value === 'string') {
 
-    const number = parseFloat(value);
+    const number = Number.parseFloat(value);
     
-    if(isNaN(number))
+    if(Number.isNaN(number))
       return result;
 
     if(Number.isInteger(number))

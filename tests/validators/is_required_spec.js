@@ -9,6 +9,9 @@ describe('is_required', () => {
     expect(validate(' ')).toBeNull();
     expect(validate(true)).toBeNull();
     expect(validate(1)).toBeNull();
+    expect(validate(0)).toBeNull();
+    expect(validate(-0)).toBeNull();
+    expect(validate(false)).toBeNull();
     expect(validate(() => 1)).toBeNull();
     expect(validate({})).toBeNull();
     expect(validate([])).toBeNull();

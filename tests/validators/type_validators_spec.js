@@ -5,6 +5,7 @@ describe('type validators', () => {
     boolean: require('../../src/validators/boolean'),
     date: require('../../src/validators/date'),
     email: require('../../src/validators/email'),
+    number: require('../../src/validators/number'),
     float: require('../../src/validators/float'),
     function: require('../../src/validators/function'),
     integer: require('../../src/validators/integer'),

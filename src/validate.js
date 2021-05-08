@@ -19,7 +19,10 @@ module.exports = function validate(data, validationRules) {
 
     state.fieldName = property;
 
-    state.fieldValue = state.model[property] || null;
+    state.fieldValue = 
+      typeof state.model[property] === 'undefined' 
+      ? null
+      : state.model[property];
 
     validateField(state);
   }

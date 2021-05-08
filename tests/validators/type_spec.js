@@ -169,4 +169,30 @@ describe('type ', () => {
     expect(validate(new Date(), 'boolean')).toEqual(error);
     expect(validate(NaN, 'boolean')).toEqual(error);
   });  
+
+  it('number should return null', () => {
+
+    expect(validate(1, 'number')).toBeNull();
+    expect(validate(-1, 'number')).toBeNull();
+    expect(validate(0, 'number')).toBeNull();
+    expect(validate(-0, 'number')).toBeNull();
+    expect(validate(void 0, 'number')).toBeNull();
+    expect(validate(null, 'number')).toBeNull();
+    expect(validate('1', 'number')).toBeNull();
+    expect(validate('1.01', 'number')).toBeNull();
+    expect(validate('-0', 'number')).toBeNull();
+  });
+
+  it('number should return error', () => {
+
+    const error = { 
+      type: 'number' 
+    };
+
+    expect(validate({}, 'number')).toEqual(error);
+    expect(validate([], 'number')).toEqual(error);
+    expect(validate('text', 'number')).toEqual(error);
+    expect(validate(true, 'number')).toEqual(error);
+    expect(validate(() => 1, 'number')).toEqual(error);
+  });  
 });

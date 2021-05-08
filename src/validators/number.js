@@ -1,9 +1,9 @@
-function integer(value) {
+function number(value) {
 
   const result = {
-    type: 'integer'
+    type: 'number'
   };
-  
+
   if(typeof value === 'undefined' || value === null)
     return null;
 
@@ -14,19 +14,16 @@ function integer(value) {
     if(Number.isNaN(number))
       return result;
 
-    if(!Number.isInteger(number))
-      return result;
-
     return null;
-  }
+  }    
 
   if(typeof value !== 'number')
     return result;
-  
-  if(!Number.isInteger(value))
-    return result;
-  
+
+  if(value === 0)
+    return null;
+    
   return null;
 }
 
-module.exports = integer;
+module.exports = number;

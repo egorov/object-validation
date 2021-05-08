@@ -26,5 +26,6 @@ describe('float', () => {
     expect(validate('text')).toEqual(error);
     expect(validate(true)).toEqual(error);
     expect(validate('45')).toEqual(error);
+    expect(validate(332.00)).toEqual(error);
   });
 });

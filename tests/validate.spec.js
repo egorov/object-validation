@@ -43,4 +43,19 @@ describe('validate', () => {
       new TypeError('validationRules must be object')
     );
   });
+
+  it('should pass', () => {
+
+    const model = {
+      Price: 0
+    };
+    const rules = {
+      Price: {
+        is_required: true,
+        type: 'integer'
+      }
+    };
+
+    expect(validate(model, rules)).toBeNull();
+  });  
 });

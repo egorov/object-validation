@@ -42,4 +42,13 @@ describe('ValidateCommand', () => {
       new TypeError('state.metadata must be object')
     );
   });
+
+  it('should pass', () => {
+
+    const cmd = new ValidateCommand();
+    cmd.use('metadata', { Price: { is_required: true }});
+    cmd.use('model', { Price: 0 });
+
+    expect(cmd.execute()).toBeNull();
+  });
 });
