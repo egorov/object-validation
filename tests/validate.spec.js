@@ -47,15 +47,44 @@ describe('validate', () => {
   it('should pass', () => {
 
     const model = {
-      Price: 0
+      Price: 0,
+      bytes: Buffer.from([ 1, 2 ])
     };
     const rules = {
       Price: {
         is_required: true,
         type: 'integer'
+      },
+      bytes: {
+        instance_of: Buffer
       }
     };
 
     expect(validate(model, rules)).toBeNull();
-  });  
+  });
+
+  it('should fail', () => {
+
+    const model = {
+      Price: 0,
+      bytes: [ 1, 2 ]
+    };
+    const rules = {
+      Price: {
+        is_required: true,
+        type: 'integer'
+      },
+      bytes: {
+        instance_of: Buffer
+      }
+    };
+
+    expect(validate(model, rules)).toEqual({
+      bytes: [
+        {
+          instance_of: 'Buffer'
+        }
+      ]
+    })
+  });
 });
