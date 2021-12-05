@@ -63,6 +63,18 @@ describe('validate', () => {
     expect(validate(model, rules)).toBeNull();
   });
 
+  it('should pass', () => {
+
+    const rules = {
+      Price: {
+        is_required: false,
+        type: 'integer'
+      }
+    };
+
+    expect(validate({}, rules)).toBeNull();
+  });
+
   it('should fail', () => {
 
     const model = {
