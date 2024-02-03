@@ -13,7 +13,8 @@ module.exports = function is_required(state) {
     if(typeof state.request.body[state.validate_field] !== 'undefined'
       && state.request.body[state.validate_field] !== null) return;
  
-    if(!state.validation_results[state.validate_field]) state.validation_results[state.validate_field] = {};
+    if(!state.validation_results[state.validate_field]) 
+      state.validation_results[state.validate_field] = {};
     
     state.validation_results[state.validate_field].is_required = true;
   }

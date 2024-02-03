@@ -14,9 +14,11 @@ module.exports = function is_string_date(state) {
 
     if(typeof state.request.body[state.validate_field] !== 'string') return;
 
-    if(!Number.isNaN(Date.parse(state.request.body[state.validate_field]))) return;
+    if(!Number.isNaN(Date.parse(state.request.body[state.validate_field]))) 
+      return;
 
-    if(!state.validation_results[state.validate_field]) state.validation_results[state.validate_field] = {};
+    if(!state.validation_results[state.validate_field]) 
+      state.validation_results[state.validate_field] = {};
     
     state.validation_results[state.validate_field].type = 'date';
   }
