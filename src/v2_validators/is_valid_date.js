@@ -4,21 +4,21 @@ module.exports = function is_valid_date(state) {
 
   if(state.error) return;
 
-  if(!state.rules[state.field]) return;
+  if(!state.validation_rules[state.validate_field]) return;
 
-  if(state.rules[state.field].type !== 'date') return;
+  if(state.validation_rules[state.validate_field].type !== 'date') return;
 
-  if(!state.request.body[state.field]) return;
+  if(!state.request.body[state.validate_field]) return;
 
   try {
 
-    if(!state.request.body[state.field] instanceof Date) return;
+    if(!state.request.body[state.validate_field] instanceof Date) return;
 
-    if(state.request.body[state.field].toString() !== 'Invalid Date') return;
+    if(state.request.body[state.validate_field].toString() !== 'Invalid Date') return;
 
-    if(!state.results[state.field]) state.results[state.field] = {};
+    if(!state.validation_results[state.validate_field]) state.validation_results[state.validate_field] = {};
     
-    state.results[state.field].type = 'date';
+    state.validation_results[state.validate_field].type = 'date';
   }
   catch(exception) {
     state.error = exception;

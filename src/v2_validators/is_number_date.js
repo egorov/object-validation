@@ -4,23 +4,23 @@ module.exports = function is_number_date(state) {
 
   if(state.error) return;
 
-  if(!state.rules[state.field]) return;
+  if(!state.validation_rules[state.validate_field]) return;
 
-  if(state.rules[state.field].type !== 'date') return;
+  if(state.validation_rules[state.validate_field].type !== 'date') return;
 
-  if(!state.request.body[state.field]) return;
+  if(!state.request.body[state.validate_field]) return;
 
   try {
 
-    if(!Number.isInteger(state.request.body[state.field])) return;
+    if(!Number.isInteger(state.request.body[state.validate_field])) return;
 
-    if(state.request.body[state.field] >= 0) return;
+    if(state.request.body[state.validate_field] >= 0) return;
 
-    if(new Date(state.request.body[state.field]).toString() !== 'Invalid Date') return;
+    if(new Date(state.request.body[state.validate_field]).toString() !== 'Invalid Date') return;
 
-    if(!state.results[state.field]) state.results[state.field] = {};
+    if(!state.validation_results[state.validate_field]) state.validation_results[state.validate_field] = {};
     
-    state.results[state.field].type = 'date';
+    state.validation_results[state.validate_field].type = 'date';
   }
   catch(exception) {
     state.error = exception;

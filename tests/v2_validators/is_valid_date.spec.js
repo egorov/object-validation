@@ -5,51 +5,51 @@ describe('is_valid_date', () => {
   it('should pass', () => {
 
     const state = {
-      field: 'created_at',
-      results: {},
+      validate_field: 'created_at',
+      validation_results: {},
       request: {
         body: { created_at: new Date() }
       },
-      rules: { created_at: { type: 'date' }}
+      validation_rules: { created_at: { type: 'date' }}
     };
 
     is_valid_date(state);
 
     expect(state.error).toBeUndefined();
-    expect(state.results).toEqual({});
+    expect(state.validation_results).toEqual({});
   });
 
   it('should skip', () => {
 
     const state = {
-      field: 'created_at',
-      results: {},
+      validate_field: 'created_at',
+      validation_results: {},
       request: {
         body: { created_at: '2024-01-03T10:00:00.0Z' }
       },
-      rules: { created_at: { type: 'date' }}
+      validation_rules: { created_at: { type: 'date' }}
     };
 
     is_valid_date(state);
 
     expect(state.error).toBeUndefined();
-    expect(state.results).toEqual({});
+    expect(state.validation_results).toEqual({});
   });
 
   it('should fail', () => {
 
     const state = {
-      field: 'created_at',
-      results: {},
+      validate_field: 'created_at',
+      validation_results: {},
       request: {
         body: { created_at: new Date('invalid date') }
       },
-      rules: { created_at: { type: 'date' }}
+      validation_rules: { created_at: { type: 'date' }}
     };
 
     is_valid_date(state);
 
     expect(state.error).toBeUndefined();
-    expect(state.results).toEqual({ created_at: { type: 'date' }});
+    expect(state.validation_results).toEqual({ created_at: { type: 'date' }});
   });
 });
