@@ -36,6 +36,40 @@ describe('is_valid_date', () => {
     expect(state.validation_results).toEqual({});
   });
 
+  it('should skip', () => {
+
+    const state = {
+      validate_field: 'created_at',
+      validation_results: {},
+      request: {
+        body: { }
+      },
+      validation_rules: { created_at: { type: 'date' }}
+    };
+
+    is_valid_date(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({});
+  });
+  
+  it('should skip', () => {
+
+    const state = {
+      validate_field: 'created_at',
+      validation_results: {},
+      request: {
+        body: { created_at: null }
+      },
+      validation_rules: { created_at: { type: 'date' }}
+    };
+
+    is_valid_date(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({});
+  });  
+
   it('should fail', () => {
 
     const state = {
