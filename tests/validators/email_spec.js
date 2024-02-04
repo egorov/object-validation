@@ -24,5 +24,6 @@ describe('email', () => {
     expect(validate({})).toEqual(error);
     expect(validate([])).toEqual(error);
     expect(validate('not email')).toEqual(error);
+    expect(validate('a@b.c')).toEqual(error);
   });
 });

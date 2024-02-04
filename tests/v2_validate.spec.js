@@ -5,9 +5,15 @@ describe('v2_validate', () => {
   it('should pass', () => {
 
     const state = {
-      request: { body: { created_at: new Date(), min_value: 1 }},
+      request: { 
+        body: { 
+          contact_email: 'jack@sparrow.com',
+          created_at: new Date(), min_value: 1 
+        },
+      },
       validation_rules: { 
-        created_at: { type: 'date' }, 
+        contact_email: { type: 'email' },
+        created_at: { type: 'date' },        
         min_value: { is_required: true }
       }
     };
@@ -21,8 +27,14 @@ describe('v2_validate', () => {
   it('should fail', () => {
 
     const state = {
-      request: { body: { created_at: new Date() }},
+      request: { 
+        body: { 
+          contact: '+7 912 922 55 66',
+          created_at: new Date() 
+        }
+      },
       validation_rules: { 
+        contact: { type: 'email' },
         created_at: { type: 'date' }, 
         min_value: { is_required: true }
       }
@@ -31,6 +43,9 @@ describe('v2_validate', () => {
     v2_validate(state);
 
     expect(state.error).toBeUndefined();
-    expect(state.validation_results).toEqual({ min_value: { is_required: true }});
+    expect(state.validation_results).toEqual({ 
+      contact: { type: 'email' },
+      min_value: { is_required: true }
+    });
   });
 });
