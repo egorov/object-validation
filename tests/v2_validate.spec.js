@@ -48,4 +48,28 @@ describe('v2_validate', () => {
       min_value: { is_required: true }
     });
   });
+
+  it('should fail', () => {
+
+    const state = {
+      request: { 
+        body: { 
+          contact_email: 'x@ibm.com',
+          first_name: 'Evans'
+        }
+      },
+      validation_rules: { 
+        contact_phone: { is_required: true, type: 'phone' },
+        contact_email: { type: 'email' },
+        first_name: { type: 'string' }
+      }
+    };
+
+    v2_validate(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({ 
+      contact_phone: { is_required: true }
+    });
+  });
 });

@@ -8,6 +8,7 @@ module.exports = [
   require('./is_number_date'),
   require('./is_required'),
   require('./is_string_date'),
+  require('./is_phone'),
   require('./is_string'),
   require('./is_url'),
   require('./is_valid_date'),
