@@ -8,13 +8,65 @@ describe('v2_validate', () => {
       request: { 
         body: { 
           contact_email: 'jack@sparrow.com',
-          created_at: new Date(), min_value: 1 
+          created_at: new Date(), 
+          min_value: 1 
         },
       },
       validation_rules: { 
         contact_email: { type: 'email' },
         created_at: { type: 'date' },        
         min_value: { is_required: true }
+      }
+    };
+
+    v2_validate(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toBeUndefined();
+  });
+
+  it('should pass', () => {
+
+    const state = {
+      request: { 
+        body: { 
+          contact_email: 'jack@sparrow.com',
+          created_at: "2024-02-17T10:00:00Z"
+        },
+      },
+      validation_rules: { 
+        contact_email: { type: 'email' },
+        created_at: { is_required: true, type: 'date' }
+      }
+    };
+
+    v2_validate(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toBeUndefined();
+  });
+
+  it('should pass', () => {
+
+    const state = {
+      request: { 
+        body: { 
+          category_id: 'XF000-XLS',
+          supplier: 'IBM'
+        },
+      },
+      validation_rules: {
+        category_id: {
+          is_required: true,
+          type: 'string'
+        },
+        supplier: {
+          is_required: true,
+          type: 'string'
+        },
+        last_time_change: {
+          type: 'date'
+        }
       }
     };
 

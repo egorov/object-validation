@@ -15,6 +15,11 @@ module.exports = function is_integer(state) {
     if(typeof state.request.body[state.validate_field] === 'number') {
       if(Number.isInteger(state.request.body[state.validate_field])) return;
     }
+    else {
+      const value = Number.parseInt(state.request.body[state.validate_field]);
+
+      if(!Number.isNaN(value)) return;
+    }
 
     if(!state.validation_results[state.validate_field]) 
       state.validation_results[state.validate_field] = {};

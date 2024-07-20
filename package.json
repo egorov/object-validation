@@ -1,6 +1,6 @@
 {
   "name": "plain-object-validation",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Object properties validation tools.",
   "main": "index.js",
   "scripts": {

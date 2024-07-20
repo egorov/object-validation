@@ -17,6 +17,21 @@ describe('is_float', () => {
     expect(state.validation_results).toEqual({});
   });
 
+  it('should pass', () => {
+
+    const state = {
+      validate_field: 'min_value',
+      request: { body: { min_value: "3.14" }},
+      validation_results: {},
+      validation_rules: { min_value: { type: 'float' }}
+    };
+
+    is_float(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({});
+  });
+
   it('should skip', () => {
 
     const state = {
