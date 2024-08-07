@@ -75,5 +75,20 @@ describe('is_email', () => {
 
     expect(state.error).toBeUndefined();
     expect(state.validation_results).toEqual({ contact_email: {type: 'email'} });
+  });
+
+  it('shold fail', () => {
+    
+    const state = {
+      validate_field: 'contact_email',
+      request: { body: { contact_email: '' }},
+      validation_results: {},
+      validation_rules: { contact_email: { type: 'email' }}
+    };
+
+    is_email(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({ contact_email: {type: 'email'} });
   }); 
 });

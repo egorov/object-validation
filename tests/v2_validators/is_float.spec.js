@@ -106,4 +106,19 @@ describe('is_float', () => {
     expect(state.error).toBeUndefined();
     expect(state.validation_results).toEqual({ min_value: { type: 'float' }});
   });
+
+  it('should fail', () => {
+
+    const state = {
+      validate_field: 'min_value',
+      request: { body: { min_value: '' }},
+      validation_results: {},
+      validation_rules: { min_value: { type: 'float' }}
+    };
+
+    is_float(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({ min_value: { type: 'float' }});
+  });
 });

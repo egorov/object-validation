@@ -8,10 +8,11 @@ module.exports = function is_email(state) {
 
   if(state.validation_rules[state.validate_field].type !== 'email') return;
 
-  if(!state.request.body[state.validate_field]) return;
+  if(state.request.body[state.validate_field] === undefined) return;
+
+  if(state.request.body[state.validate_field] === null) return;
 
   try {
-
 
     if(typeof state.request.body[state.validate_field] === 'string') {
 

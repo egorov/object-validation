@@ -8,7 +8,9 @@ module.exports = function is_valid_date(state) {
 
   if(state.validation_rules[state.validate_field].type !== 'date') return;
 
-  if(!state.request.body[state.validate_field]) return;
+  if(state.request.body[state.validate_field] === undefined) return;
+
+  if(state.request.body[state.validate_field] === null) return;
 
   try {
 

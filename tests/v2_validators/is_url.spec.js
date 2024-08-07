@@ -75,5 +75,20 @@ describe('is_url', () => {
 
     expect(state.error).toBeUndefined();
     expect(state.validation_results).toEqual({ camera_url: { type: 'url' } });
+  });
+
+  it('shold fail', () => {
+    
+    const state = {
+      validate_field: 'camera_url',
+      request: { body: { camera_url: '' }},
+      validation_results: {},
+      validation_rules: { camera_url: { type: 'url' }}
+    };
+
+    is_url(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({ camera_url: { type: 'url' } });
   }); 
 });

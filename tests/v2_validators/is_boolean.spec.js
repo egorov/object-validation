@@ -106,4 +106,19 @@ describe('is_boolean', () => {
     expect(state.error).toBeUndefined();
     expect(state.validation_results).toEqual({ is_smb: { type: 'boolean' }});
   });
+
+  it('should fail', () => {
+
+    const state = {
+      validate_field: 'is_smb',
+      request: { body: { is_smb: '' }},
+      validation_results: {},
+      validation_rules: { is_smb: { type: 'boolean' }}
+    };
+
+    is_boolean(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({ is_smb: { type: 'boolean' }});
+  });
 });

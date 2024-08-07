@@ -8,7 +8,9 @@ module.exports = function is_url(state) {
 
   if(state.validation_rules[state.validate_field].type !== 'url') return;
 
-  if(!state.request.body[state.validate_field]) return;
+  if(state.request.body[state.validate_field] === undefined) return;
+
+  if(state.request.body[state.validate_field] === null) return;
 
   try {
     new URL(state.request.body[state.validate_field]);

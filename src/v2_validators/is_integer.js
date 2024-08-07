@@ -8,7 +8,9 @@ module.exports = function is_integer(state) {
 
   if(state.validation_rules[state.validate_field].type !== 'integer') return;
 
-  if(!state.request.body[state.validate_field]) return;
+  if(state.request.body[state.validate_field] === undefined) return;
+
+  if(state.request.body[state.validate_field] === null) return;
 
   try {
 

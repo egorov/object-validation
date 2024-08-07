@@ -55,6 +55,38 @@ describe('is_number_date', () => {
       validate_field: 'created_at',
       validation_results: {},
       request: {
+        body: { }
+      },
+      validation_rules: { created_at: { type: 'date' }}
+    };
+
+    is_number_date(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({});
+  });
+
+  it('should skip', () => {
+    const state = {
+      validate_field: 'created_at',
+      validation_results: {},
+      request: {
+        body: { created_at: '' }
+      },
+      validation_rules: { created_at: { type: 'date' }}
+    };
+
+    is_number_date(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({});
+  });
+
+  it('should skip', () => {
+    const state = {
+      validate_field: 'created_at',
+      validation_results: {},
+      request: {
         body: { created_at: new Date() }
       },
       validation_rules: { created_at: { type: 'date' }}

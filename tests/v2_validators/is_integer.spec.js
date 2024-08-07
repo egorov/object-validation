@@ -106,4 +106,19 @@ describe('is_integer', () => {
     expect(state.error).toBeUndefined();
     expect(state.validation_results).toEqual({ min_value: { type: 'integer' }});
   });
+
+  it('should fail', () => {
+
+    const state = {
+      validate_field: 'min_value',
+      request: { body: { min_value: '' }},
+      validation_results: {},
+      validation_rules: { min_value: { type: 'integer' }}
+    };
+
+    is_integer(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({ min_value: { type: 'integer' }});
+  });  
 });

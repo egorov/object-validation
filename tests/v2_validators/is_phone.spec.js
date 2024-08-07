@@ -91,4 +91,19 @@ describe('is_phone', () => {
     expect(state.error).toBeUndefined();
     expect(state.validation_results).toEqual({ contact_phone: { type: 'phone' }});
   });
+
+  it('should fail', () => {
+
+    const state = {
+      validate_field: 'contact_phone',
+      request: { body: { contact_phone: '' }},
+      validation_results: {},
+      validation_rules: { contact_phone: { type: 'phone' }}
+    };
+
+    is_phone(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({ contact_phone: { type: 'phone' }});
+  });
 });
