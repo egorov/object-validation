@@ -62,6 +62,21 @@ describe('max_length', () => {
     expect(state.validation_results).toEqual({});
   });
 
+  it('shold skip', () => {
+    
+    const state = {
+      validate_field: 'first_name',
+      request: { body: { first_name: '' }},
+      validation_results: {},
+      validation_rules: { first_name: { max_length: 10 }}
+    };
+
+    max_length(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({});
+  });  
+
   it('shold fail', () => {
     
     const state = {

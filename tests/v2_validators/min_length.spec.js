@@ -66,6 +66,21 @@ describe('min_length', () => {
     
     const state = {
       validate_field: 'first_name',
+      request: { body: { first_name: '' }},
+      validation_results: {},
+      validation_rules: { first_name: { min_length: 10 }}
+    };
+
+    min_length(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({ first_name: { min_length: 10 } });
+  });
+
+  it('shold fail', () => {
+    
+    const state = {
+      validate_field: 'first_name',
       request: { body: { first_name: 'Ja' }},
       validation_results: {},
       validation_rules: { first_name: { min_length: 3 }}
@@ -75,5 +90,5 @@ describe('min_length', () => {
 
     expect(state.error).toBeUndefined();
     expect(state.validation_results).toEqual({ first_name: { min_length: 3 } });
-  });  
+  });
 });
