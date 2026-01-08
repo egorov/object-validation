@@ -124,4 +124,102 @@ describe('v2_validate', () => {
       contact_phone: { is_required: true }
     });
   });
+
+  it('should pass', () => {
+
+    const state = {
+      request: { 
+        body: { 
+          price: 10.29
+        },
+      },
+      validation_rules: {
+        price: {
+          is_required: true,
+          type: 'number',
+          in_range: [ 10, 100 ]
+        }
+      }
+    };
+
+    v2_validate(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toBeUndefined();
+  });
+
+  it('should fail', () => {
+
+    const state = {
+      request: { 
+        body: {
+          name: 'battery',
+          price: 120.01
+        },
+      },
+      validation_rules: {
+        name: {
+          is_required: true,
+          type: 'string',
+          min_length: 3
+        },
+        price: {
+          is_required: true,
+          type: 'number',
+          in_range: [ 10, 100 ]
+        }
+      }
+    };
+
+    v2_validate(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({ price: { in_range: [ 10, 100 ]}});
+  });
+
+  it('should pass', () => {
+
+    const state = {
+      request: { 
+        body: { 
+          name: 'screen'
+        },
+      },
+      validation_rules: {
+        name: {
+          is_required: true,
+          type: 'string',
+          in_range: [ 'battery', 'screen' ]
+        }
+      }
+    };
+
+    v2_validate(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toBeUndefined();
+  });
+
+  it('should fail', () => {
+
+    const state = {
+      request: { 
+        body: { 
+          name: 'button'
+        },
+      },
+      validation_rules: {
+        name: {
+          is_required: true,
+          type: 'string',
+          in_range: [ 'battery', 'screen' ]
+        }
+      }
+    };
+
+    v2_validate(state);
+
+    expect(state.error).toBeUndefined();
+    expect(state.validation_results).toEqual({ name: { in_range: [ 'battery', 'screen' ]}});
+  });  
 });

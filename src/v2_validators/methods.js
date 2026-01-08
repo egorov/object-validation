@@ -13,5 +13,6 @@ module.exports = [
   require('./is_url'),
   require('./is_valid_date'),
   require('./max_length'),
-  require('./min_length')
+  require('./min_length'),
+  require('./in_range')
 ]
